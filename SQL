@@ -1,0 +1,49 @@
+
+
+1.CREATE TABLE employees (
+    employee_id INT PRIMARY KEY,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    phone_number VARCHAR(20),
+    hire_date DATE NOT NULL,
+    job_id VARCHAR(10) NOT NULL,
+    salary DECIMAL(10, 2),
+    commission_pct DECIMAL(5, 2),
+    manager_id INT,
+    department_id INT
+);
+
+2.INSERT INTO employees (employee_id, first_name, last_name, email, phone_number, hire_date, job_id, salary, commission_pct, manager_id, department_id)
+VALUES 
+(101, 'Alice', 'Taylor', 'alice.taylor@example.com', '555-1234', '2018-03-12', 'IT_PROG', 60000, NULL, 100, 60),
+(102, 'David', 'Brown', 'david.brown@example.com', '555-5678', '2019-07-23', 'HR_REP', 50000, NULL, 101, 20),
+(103, 'Sophia', 'Martin', 'sophia.martin@example.com', '555-8765', '2020-11-08', 'SA_REP', 45000, 0.05, 102, 30),
+(104, 'James', 'Miller', 'james.miller@example.com', '555-4321', '2021-02-14', 'FI_MGR', 80000, NULL, 101, 40),
+(105, 'Olivia', 'Anderson', 'olivia.anderson@example.com', '555-6789', '2022-08-30', 'AD_ASST', 35000, NULL, 103, 10);
+
+
+select * from employees;
+3.SELECT first_name "First Name",  
+last_name "Last Name" 
+FROM employees;
+4.SELECT DISTINCT department_id
+FROM employees;
+5.SELECT * FROM employees 
+ORDER BY first_name DESC;
+6.SELECT first_name, last_name, salary, 
+salary * 0.15 AS PF 
+FROM employees;
+7.SELECT employee_id, first_name, last_name, salary 
+FROM employees 
+ORDER BY salary;
+8.SELECT SUM(salary) 
+FROM employees;
+9.SELECT MAX(salary), MIN(salary) 
+FROM employees;
+10.SELECT COUNT(*) 
+FROM employeesdata;
+-- Counting the total number of distinct job IDs in the employees table
+11.SELECT COUNT(DISTINCT job_id) 
+FROM employees;
+
